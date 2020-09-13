@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html dir="ltr" lang="en-us">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">

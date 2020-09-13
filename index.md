@@ -92,11 +92,14 @@ input[type="text"], input[type="password"], textarea {
     <div class="yui-t1" id="doc3">
       <div id="hd">
         <h1>Common Core Ontologies</h1>
-        <p>The Common Core Ontologies (CCO) were created by <a href="https://www.cubrc.org"
+        <p>The Common Core Ontologies (CCO) were created by <a href="https://www.cubrc.org"
+
             target="_blank">CUBRC, Inc.</a> during its participation in the
-          Intelligence Advanced Research Projects Activity (<a href="https://www.iarpa.gov"
+          Intelligence Advanced Research Projects Activity (<a href="https://www.iarpa.gov"
+
             target="_blank">IARPA</a>) Knowledge, Discovery and Dissemination
-          program (<a href="https://www.iarpa.gov/index.php/working-with-iarpa/index.php?option=com_content&amp;view=article&amp;id=37&amp;Itemid=181"
+          program (<a href="https://www.iarpa.gov/index.php/working-with-iarpa/index.php?option=com_content&amp;view=article&amp;id=37&amp;Itemid=181"
+
             target="_blank">KDD</a>). The CCO are a set of nine mid-level
           ontologies with domains of: agents, artifacts, events, information,
           currency, space, qualities, time and units of measure. Also included
@@ -112,7 +115,8 @@ input[type="text"], input[type="password"], textarea {
           respectively.&nbsp; </p>
         <p>In November of 2017, the CCO were distributed as open source files.
           They are available for use under the Creative Commons Attribution 4.0
-          International License (<a href="https://creativecommons.org/licenses/by/4.0/"
+          International License (<a href="https://creativecommons.org/licenses/by/4.0/"
+
             target="_blank">CC BY 4.0</a>).</p>
         <h3>Contributors </h3>
         <p>The following persons have made significant contributions to the
@@ -136,14 +140,16 @@ input[type="text"], input[type="password"], textarea {
           </tbody>
         </table>
         Other contributors are those who have posted comments to the CCO Issues
-        page <a href="https://github.com/CommonCoreOntology/CommonCoreOntologies/issues"
+        page <a href="https://github.com/CommonCoreOntology/CommonCoreOntologies/issues"
+
           target="_blank">CCO Issues</a> .</div>
       <div>
         <h3>Methodology </h3>
         <p>The CCO are developed using a methodology espoused by the Open
           Biological and Biomedical Ontology Foundry<span style="color: #0000ee;">
           </span><a href="http://www.obofoundry.org/" target="_blank">OBO
-            Foundry</a>. Using Basic Formal Ontology <a href="https://basic-formal-ontology.org/"
+            Foundry</a>. Using Basic Formal Ontology <a href="https://basic-formal-ontology.org/"
+
             target="_blank">BFO</a> as the upper ontology, the CCO are
           specializations of the BFO classes intended to provide a vocabulary
           about commonplace entities. While useful in themselves, the intended
@@ -151,13 +157,16 @@ input[type="text"], input[type="password"], textarea {
           reuse CCO content and create only those classes needed to describe
           their particular area of interest. Documentation about the CCO
           methodology and representing information with the CCO is available
-          at&nbsp;<a href="https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/master/documentation"
+          at&nbsp;<a href="https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/master/documentation"
+
             target="_blank">CCO Documentation</a> .</p>
         <h3>Ontology Files</h3>
         <p>The CCO are published in OWL using the Turtle syntax. The CCO files
-          are available at <a href="https://github.com/CommonCoreOntology/CommonCoreOntologies"
+          are available at <a href="https://github.com/CommonCoreOntology/CommonCoreOntologies"
+
             target="_blank">CCO Ontology Files</a> and the BFO files imported by
-          the CCO files are available at <a href="https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/master/imports"
+          the CCO files are available at <a href="https://github.com/CommonCoreOntology/CommonCoreOntologies/tree/master/imports"
+
             target="_blank">BFO Files</a> .The import structure of the CCO files
           is depicted in the diagram below.</p>
         <img src="CCOImportDiagram.png" alt="" style="max-width:80%;" title="CCO File Import Diagram"></div>

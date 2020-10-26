@@ -9,37 +9,13 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology> rdf:type owl:Ontology ;
-                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/EventOntology> ;
+                                                                            owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-10-23/EventOntology> ;
                                                                             owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                             cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                             cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                            cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                             rdfs:comment "This ontology is designed to represent processual entities, especially those performed by agents, that occur within multiple domains."@en ;
                                                                             rdfs:label "Event Ontology"@en ;
-                                                                            owl:versionInfo "Version 1.3"@en .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/process_preceded_by
-cco:process_preceded_by rdf:type owl:ObjectProperty ;
-                        owl:inverseOf cco:process_precedes ;
-                        cco:definition "P preceded_by P' if and only if: given any process p that instantiates P at a time t, there is some process p' such that p' instantiates P' at time t', and t' is earlier than t."@en ;
-                        cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#preceded_by" ;
-                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                        rdfs:label "process preceded by"@en ;
-                        rdfs:seeAlso "http://purl.obolibrary.org/obo/BFO_0000062" .
-
-
-###  http://www.ontologyrepository.com/CommonCoreOntologies/process_precedes
-cco:process_precedes rdf:type owl:ObjectProperty ;
-                     cco:definition "Inverse of process preceded by."@en ;
-                     cco:definition_source "Derived from the deprecated http://www.obofoundry.org/ro/ro.owl#precedes" ;
-                     cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
-                     rdfs:label "process precedes"@en ;
-                     rdfs:seeAlso "http://purl.obolibrary.org/obo/BFO_0000063" .
-
+                                                                            owl:versionInfo "A draft version of CCO that illustrates provisional changes necessary to import BFO2020. The Relations Ontology is no longer used."@en .
 
 #################################################################
 #    Classes
@@ -47,7 +23,7 @@ cco:process_precedes rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Acceleration
 cco:Acceleration rdf:type owl:Class ;
-                 rdfs:subClassOf obo:BFO_0000144 ,
+                 rdfs:subClassOf cco:ProcessProfile ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty cco:has_process_part ;
                                    owl:someValuesFrom cco:Velocity
@@ -1181,7 +1157,7 @@ cco:ActiveStasis rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Amplitude
 cco:Amplitude rdf:type owl:Class ;
-              rdfs:subClassOf obo:BFO_0000144 ;
+              rdfs:subClassOf cco:ProcessProfile ;
               cco:definition "A Process Profile of an Oscillation Process that is the absolute value of the maximum displacement from a zero, equilibrium, or mean value during one cycle of the Oscillation Process."@en ;
               cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
               rdfs:label "Amplitude"@en .
@@ -1377,8 +1353,8 @@ cco:DecreaseOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DecreaseOfFunction
 cco:DecreaseOfFunction rdf:type owl:Class ;
-                       rdfs:subClassOf cco:DecreaseOfRealizableEntity ;
-                       cco:definition "A Decrease of Realizable Entity in which some Independent Continuant has a decrease of some Function that it bears."@en ;
+                       rdfs:subClassOf cco:DecreaseOfDisposition ;
+                       cco:definition "A Decrease of Disposition in which some Independent Continuant has a decrease of some Function that it bears."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                        rdfs:label "Decrease of Function"@en .
 
@@ -1436,7 +1412,7 @@ cco:DefunctStasis rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/DeltaV
 cco:DeltaV rdf:type owl:Class ;
-           rdfs:subClassOf obo:BFO_0000144 ,
+           rdfs:subClassOf cco:ProcessProfile ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty cco:has_process_part ;
                              owl:someValuesFrom cco:Velocity
@@ -1475,11 +1451,11 @@ cco:Effect rdf:type owl:Class ;
 cco:EffectOfLocationChange rdf:type owl:Class ;
                            rdfs:subClassOf cco:Effect ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty obo:BFO_0000050 ;
+                                             owl:onProperty cco:caused_by ;
                                              owl:someValuesFrom cco:ActOfLocationChange
                                            ] ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty cco:caused_by ;
+                                             owl:onProperty cco:is_part_of_process ;
                                              owl:someValuesFrom cco:ActOfLocationChange
                                            ] ;
                            cco:definition "An Effect caused by some Act of Location Change and which results in an Object being located in a different place."@en ;
@@ -1654,7 +1630,7 @@ cco:FixedLineNetworkTelephoneCall rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Force
 cco:Force rdf:type owl:Class ;
-          rdfs:subClassOf obo:BFO_0000144 ;
+          rdfs:subClassOf cco:ProcessProfile ;
           cco:definition "A Process Profile that is the rate of change of an object's Momentum, is the product of an object's Mass and Acceleration with respect to an inertial frame of reference, and is measured in units of Newtons (N)."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
           rdfs:label "Force"@en .
@@ -1662,7 +1638,7 @@ cco:Force rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Frequency
 cco:Frequency rdf:type owl:Class ;
-              rdfs:subClassOf obo:BFO_0000144 ;
+              rdfs:subClassOf cco:ProcessProfile ;
               cco:alternative_label "Temporal Frequency"@en ;
               cco:definition "A Process Profile that is characterized by the number of repetitive processes during a particular time period."@en ;
               cco:definition_source "https://en.wikipedia.org/wiki/Frequency" ;
@@ -1700,10 +1676,10 @@ cco:GainOfDependentContinuant rdf:type owl:Class ;
 cco:GainOfDisposition rdf:type owl:Class ;
                       rdfs:subClassOf cco:GainOfRealizableEntity ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty obo:RO_0000057 ;
+                                        owl:onProperty obo:BFO_0000057 ;
                                         owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                                   [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty obo:RO_0000091 ;
+                                                                                    owl:onProperty obo:BFO_0000196 ;
                                                                                     owl:someValuesFrom obo:BFO_0000016
                                                                                   ]
                                                                                 ) ;
@@ -1718,19 +1694,19 @@ cco:GainOfDisposition rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GainOfFunction
 cco:GainOfFunction rdf:type owl:Class ;
-                   rdfs:subClassOf cco:GainOfRealizableEntity ,
+                   rdfs:subClassOf cco:GainOfDisposition ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty obo:RO_0000057 ;
+                                     owl:onProperty obo:BFO_0000057 ;
                                      owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                                [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty obo:RO_0000085 ;
+                                                                                 owl:onProperty obo:BFO_0000196 ;
                                                                                  owl:someValuesFrom obo:BFO_0000034
                                                                                ]
                                                                              ) ;
                                                           rdf:type owl:Class
                                                         ]
                                    ] ;
-                   cco:definition "A Gain of Realizable Entity in which some Independent Continuant becomes the bearer of some Function."@en ;
+                   cco:definition "A Gain of Disposition in which some Independent Continuant becomes the bearer of some Function."@en ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                    rdfs:comment "This class should be used to demarcate the start of the temporal interval (through the occurs_on property) that the Entity bears the Function."@en ;
                    rdfs:label "Gain of Function"@en .
@@ -1740,10 +1716,10 @@ cco:GainOfFunction rdf:type owl:Class ;
 cco:GainOfGenericallyDependentContinuant rdf:type owl:Class ;
                                          rdfs:subClassOf cco:GainOfDependentContinuant ,
                                                          [ rdf:type owl:Restriction ;
-                                                           owl:onProperty obo:RO_0000057 ;
+                                                           owl:onProperty obo:BFO_0000057 ;
                                                            owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                       owl:onProperty obo:RO_0010002 ;
+                                                                                                       owl:onProperty obo:BFO_0000101 ;
                                                                                                        owl:someValuesFrom obo:BFO_0000031
                                                                                                      ]
                                                                                                    ) ;
@@ -1760,10 +1736,10 @@ cco:GainOfGenericallyDependentContinuant rdf:type owl:Class ;
 cco:GainOfQuality rdf:type owl:Class ;
                   rdfs:subClassOf cco:GainOfSpecificallyDependentContinuant ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000057 ;
+                                    owl:onProperty obo:BFO_0000057 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                               [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:RO_0000086 ;
+                                                                                owl:onProperty obo:BFO_0000196 ;
                                                                                 owl:someValuesFrom obo:BFO_0000019
                                                                               ]
                                                                             ) ;
@@ -1780,10 +1756,10 @@ cco:GainOfQuality rdf:type owl:Class ;
 cco:GainOfRealizableEntity rdf:type owl:Class ;
                            rdfs:subClassOf cco:GainOfSpecificallyDependentContinuant ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty obo:RO_0000057 ;
+                                             owl:onProperty obo:BFO_0000057 ;
                                              owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                                        [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty obo:RO_0000053 ;
+                                                                                         owl:onProperty obo:BFO_0000196 ;
                                                                                          owl:someValuesFrom obo:BFO_0000017
                                                                                        ]
                                                                                      ) ;
@@ -1800,10 +1776,10 @@ cco:GainOfRealizableEntity rdf:type owl:Class ;
 cco:GainOfRole rdf:type owl:Class ;
                rdfs:subClassOf cco:GainOfRealizableEntity ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty obo:RO_0000057 ;
+                                 owl:onProperty obo:BFO_0000057 ;
                                  owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                            [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty obo:RO_0000087 ;
+                                                                             owl:onProperty obo:BFO_0000196 ;
                                                                              owl:someValuesFrom obo:BFO_0000023
                                                                            ]
                                                                          ) ;
@@ -1820,10 +1796,10 @@ cco:GainOfRole rdf:type owl:Class ;
 cco:GainOfSpecificallyDependentContinuant rdf:type owl:Class ;
                                           rdfs:subClassOf cco:GainOfDependentContinuant ,
                                                           [ rdf:type owl:Restriction ;
-                                                            owl:onProperty obo:RO_0000057 ;
+                                                            owl:onProperty obo:BFO_0000057 ;
                                                             owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000004
                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty obo:RO_0000053 ;
+                                                                                                        owl:onProperty obo:BFO_0000196 ;
                                                                                                         owl:someValuesFrom obo:BFO_0000020
                                                                                                       ]
                                                                                                     ) ;
@@ -1878,7 +1854,7 @@ cco:IgnitionProcess rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ImpulsiveForce
 cco:ImpulsiveForce rdf:type owl:Class ;
-                   rdfs:subClassOf obo:BFO_0000144 ;
+                   rdfs:subClassOf cco:ProcessProfile ;
                    cco:alternative_label "Imp"@en ,
                                          "Impulse"@en ,
                                          "J"@en ;
@@ -2009,7 +1985,7 @@ cco:LegalSystemAct rdf:type owl:Class ;
 cco:LifeEvent rdf:type owl:Class ;
               rdfs:subClassOf cco:FiatProcessPart ,
                               [ rdf:type owl:Restriction ;
-                                owl:onProperty obo:BFO_0000050 ;
+                                owl:onProperty cco:is_part_of_process ;
                                 owl:someValuesFrom cco:BiographicalLife
                               ] ;
               cco:definition "A Fiat Process Part participated in by the Agent of some Biographical Life."@en ;
@@ -2211,7 +2187,7 @@ cco:MidrangeFrequency rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Momentum
 cco:Momentum rdf:type owl:Class ;
-             rdfs:subClassOf obo:BFO_0000144 ;
+             rdfs:subClassOf cco:ProcessProfile ;
              cco:definition "A Process Profile of an object in Motion that is the product of its Mass and Velocity with respect to a frame of reference."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
              rdfs:comment "The SI unit of measure for Momentum is Newton seconds (N s)."@en ;
@@ -2298,7 +2274,7 @@ cco:Pitch rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Power
 cco:Power rdf:type owl:Class ;
-          rdfs:subClassOf obo:BFO_0000144 ;
+          rdfs:subClassOf cco:ProcessProfile ;
           cco:definition "A Process Profile that is characterized by the rate of Work, or Energy consumed, done in a given time period."@en ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
           rdfs:label "Power"@en .
@@ -2362,6 +2338,19 @@ cco:ProcessHistory rdf:type owl:Class ;
                                         "The Process History of a particular sporting event includes the processes of the fans arriving, cheering, booing, holding up signs, buying food and merchandise, and leaving as well as the processes that the coaches, players, and referees engage in during the sporting event." ;
                    cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                    rdfs:label "Process History"@en .
+
+
+###  http://www.ontologyrepository.com/CommonCoreOntologies/ProcessProfile
+cco:ProcessProfile rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000003 ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty obo:BFO_0000138 ;
+                                     owl:someValuesFrom obo:BFO_0000015
+                                   ] ;
+                   cco:definition "An occurrent that is a proper occurrent part of some process by virtue of the rate, or pattern, or amplitude of change in an attribute of one or more participants of said process."@en ;
+                   cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
+                   rdfs:comment "This class replaces http://purl.obolibrary.org/obo/BFO_00000144."@en ;
+                   rdfs:label "Process Profile"@en .
 
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/ProcessRecurrenceAggregate
@@ -2535,7 +2524,7 @@ cco:SoundPressure rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SoundProcessProfile
 cco:SoundProcessProfile rdf:type owl:Class ;
-                        owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000144
+                        owl:equivalentClass [ owl:intersectionOf ( cco:ProcessProfile
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty cco:is_part_of_process ;
                                                                      owl:someValuesFrom cco:SoundWaveProcess
@@ -2543,7 +2532,7 @@ cco:SoundProcessProfile rdf:type owl:Class ;
                                                                  ) ;
                                               rdf:type owl:Class
                                             ] ;
-                        rdfs:subClassOf obo:BFO_0000144 ;
+                        rdfs:subClassOf cco:ProcessProfile ;
                         cco:alternative_label "Sound Quality"@en ;
                         cco:definition "A Process Profile that is part of a sound reception process and is characterized by properties of incoming sound waves as they are translated by some sensory system."@en ;
                         cco:definition_source "http://www.animations.physics.unsw.edu.au/waves-sound/quantifying/index.html" ,
@@ -2585,7 +2574,7 @@ cco:SoundWavelength rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Speed
 cco:Speed rdf:type owl:Class ;
-          rdfs:subClassOf obo:BFO_0000144 ;
+          rdfs:subClassOf cco:ProcessProfile ;
           cco:definition "A Process Profile that is characterized by the magnitude of an object's motion with respect to a frame of reference during some time period."@en ;
           cco:definition_source "https://en.wikipedia.org/wiki/Speed" ;
           cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
@@ -2994,7 +2983,7 @@ cco:UpperMidrangeFrequency rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/Velocity
 cco:Velocity rdf:type owl:Class ;
-             rdfs:subClassOf obo:BFO_0000144 ;
+             rdfs:subClassOf cco:ProcessProfile ;
              cco:definition "A Process Profile of an object's Motion that describes its Speed and direction with respect to a frame of reference."@en ;
              cco:definition_source "https://en.wikipedia.org/wiki/Velocity" ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
@@ -3077,16 +3066,16 @@ cco:WaveCycle rdf:type owl:Class ;
 cco:WaveProcess rdf:type owl:Class ;
                 rdfs:subClassOf cco:NaturalProcess ,
                                 [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:BFO_0000062 ;
+                                  owl:someValuesFrom cco:WaveProduction
+                                ] ,
+                                [ rdf:type owl:Restriction ;
                                   owl:onProperty cco:has_process_part ;
                                   owl:someValuesFrom cco:OscillationProcess
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty cco:has_process_part ;
                                   owl:someValuesFrom cco:WaveProcessProfile
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty cco:process_preceded_by ;
-                                  owl:someValuesFrom cco:WaveProduction
                                 ] ;
                 cco:definition "A Natural Process that involves Oscillation accompanied by a transfer of energy that travels through a portion of matter or spatial region."@en ;
                 cco:definition_source "https://en.wikipedia.org/wiki/Wave" ;
@@ -3096,7 +3085,7 @@ cco:WaveProcess rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WaveProcessProfile
 cco:WaveProcessProfile rdf:type owl:Class ;
-                       owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000144
+                       owl:equivalentClass [ owl:intersectionOf ( cco:ProcessProfile
                                                                   [ rdf:type owl:Restriction ;
                                                                     owl:onProperty cco:is_part_of_process ;
                                                                     owl:someValuesFrom cco:WaveProcess
@@ -3104,7 +3093,7 @@ cco:WaveProcessProfile rdf:type owl:Class ;
                                                                 ) ;
                                              rdf:type owl:Class
                                            ] ;
-                       rdfs:subClassOf obo:BFO_0000144 ;
+                       rdfs:subClassOf cco:ProcessProfile ;
                        cco:definition "A Process Profile of a Wave Process."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/EventOntology"^^xsd:anyURI ;
                        rdfs:comment "This is a defined class used to group process profiles of Wave Processes. Note that not every relevant process profile can be asserted as a subtype, however, because they (e.g. Frequency and Amplitude) are applicable to other processes as well (e.g. Oscillation Process)."@en ;
@@ -3184,4 +3173,4 @@ cco:XrayFrequency rdf:type owl:Class ;
                   rdfs:label "X-ray Frequency"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

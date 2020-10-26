@@ -9,14 +9,13 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology> rdf:type owl:Ontology ;
-                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/ArtifactOntology> ;
+                                                                               owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-10-23/ArtifactOntology> ;
                                                                                owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/InformationEntityOntology> ;
                                                                                cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                               cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                                rdfs:comment "This ontology is designed to represent artifacts that are common to multiple domains along with their models, specifications, and functions."@en ;
                                                                                rdfs:label "Artifact Ontology"@en ;
-                                                                               owl:versionInfo "Version 1.3"@en .
+                                                                               owl:versionInfo "A draft version of CCO that illustrates provisional changes necessary to import BFO2020. The Relations Ontology is no longer used."@en .
 
 #################################################################
 #    Classes
@@ -201,7 +200,7 @@ cco:ArtifactDimensionSpecification rdf:type owl:Class ;
 cco:ArtifactFunction rdf:type owl:Class ;
                      rdfs:subClassOf obo:BFO_0000034 ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty obo:RO_0000052 ;
+                                       owl:onProperty obo:BFO_0000197 ;
                                        owl:someValuesFrom cco:Artifact
                                      ] ;
                      cco:definition "A Function that inheres in some Artifact in virtue of that Artifact being designed to be used in processes that require that Function to be realized."@en ;
@@ -245,7 +244,7 @@ cco:ArtifactIdentifier rdf:type owl:Class ;
 cco:ArtifactLocation rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000029
                                                                 [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty obo:RO_0001015 ;
+                                                                  owl:onProperty obo:BFO_0000124 ;
                                                                   owl:someValuesFrom cco:Artifact
                                                                 ]
                                                               ) ;
@@ -2170,12 +2169,12 @@ cco:InfantryFightingVehicle rdf:type owl:Class ;
 cco:InformationBearingArtifact rdf:type owl:Class ;
                                rdfs:subClassOf cco:Artifact ,
                                                [ rdf:type owl:Restriction ;
-                                                 owl:onProperty obo:BFO_0000050 ;
-                                                 owl:someValuesFrom cco:InformationMediumArtifact
+                                                 owl:onProperty obo:BFO_0000101 ;
+                                                 owl:someValuesFrom cco:InformationContentEntity
                                                ] ,
                                                [ rdf:type owl:Restriction ;
-                                                 owl:onProperty obo:RO_0010002 ;
-                                                 owl:someValuesFrom cco:InformationContentEntity
+                                                 owl:onProperty obo:BFO_0000176 ;
+                                                 owl:someValuesFrom cco:InformationMediumArtifact
                                                ] ;
                                cco:definition "An Artifact that carries an Information Content Entity and is designed to do so using a particular format or structure."@en ;
                                cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
@@ -2236,7 +2235,7 @@ cco:InfraredTelescope rdf:type owl:Class ;
 cco:Infrastructure rdf:type owl:Class ;
                    owl:equivalentClass [ owl:intersectionOf ( cco:Artifact
                                                               [ rdf:type owl:Restriction ;
-                                                                owl:onProperty obo:RO_0000053 ;
+                                                                owl:onProperty obo:BFO_0000196 ;
                                                                 owl:someValuesFrom cco:InfrastructureRole
                                                               ]
                                                             ) ;
@@ -2998,7 +2997,7 @@ cco:Payload rdf:type owl:Class ;
 cco:PayloadCapacity rdf:type owl:Class ;
                     rdfs:subClassOf cco:ArtifactFunction ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty obo:RO_0000052 ;
+                                      owl:onProperty obo:BFO_0000197 ;
                                       owl:someValuesFrom cco:Vehicle
                                     ] ;
                     cco:definition "An Artifact Function that inheres in a Vehicle that is designed to transport Payload, and which is typically characterized by the maximum Weight, Mass, or Volume of Payload that the Vehicle can transport."@en ;
@@ -4119,7 +4118,7 @@ cco:SensorDeploymentArtifactFunction rdf:type owl:Class ;
 cco:SensorModalityFunction rdf:type owl:Class ;
                            rdfs:subClassOf cco:SensorArtifactFunction ,
                                            [ rdf:type owl:Restriction ;
-                                             owl:onProperty obo:RO_0000052 ;
+                                             owl:onProperty obo:BFO_0000197 ;
                                              owl:someValuesFrom cco:Sensor
                                            ] ;
                            cco:definition "A Sensor Artifact Function that inheres in some Sensor in virtue of the type of energy the Sensor is capable of converting into an output signal."@en ;
@@ -4485,7 +4484,7 @@ cco:TelecommunicationNetworkLine rdf:type owl:Class ;
 cco:TelecommunicationNetworkNode rdf:type owl:Class ;
                                  rdfs:subClassOf cco:TelecommunicationInfrastructure ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty obo:BFO_0000050 ;
+                                                   owl:onProperty obo:BFO_0000176 ;
                                                    owl:someValuesFrom cco:TelecommunicationNetwork
                                                  ] ;
                                  cco:definition "A Telecommunication Infrastructure Artifact that consists of a connection point, redistribution point, or endpoint that is designed to be part of a Telecommunication Network and can be either active or passive."@en ;
@@ -5061,15 +5060,7 @@ cco:WiredCommunicationReceptionArtifactFunction rdf:type owl:Class ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/WiredCommunicationRelayArtifactFunction
 cco:WiredCommunicationRelayArtifactFunction rdf:type owl:Class ;
-                                            rdfs:subClassOf cco:CommunicationRelayArtifactFunction ,
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty obo:BFO_0000051 ;
-                                                              owl:someValuesFrom cco:RadioCommunicationArtifactFunction
-                                                            ] ,
-                                                            [ rdf:type owl:Restriction ;
-                                                              owl:onProperty obo:BFO_0000051 ;
-                                                              owl:someValuesFrom cco:RadioCommunicationReceptionArtifactFunction
-                                                            ] ;
+                                            rdfs:subClassOf cco:CommunicationRelayArtifactFunction ;
                                             cco:definition "A Communication Relay Artifact Function that is realized during events in which an Artifact is used to first receive and then transmit information by means of wires from one Artifact to another for the purpose of communiction."@en ;
                                             cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ArtifactOntology"^^xsd:anyURI ;
                                             rdfs:label "Wired Communication Relay Artifact Function"@en .

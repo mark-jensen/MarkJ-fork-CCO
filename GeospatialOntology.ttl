@@ -9,14 +9,13 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology> rdf:type owl:Ontology ;
-                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-09-23/GeospatialOntology> ;
+                                                                                 owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-10-23/GeospatialOntology> ;
                                                                                  owl:imports <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ExtendedRelationOntology> ;
                                                                                  cco:code_license <https://opensource.org/licenses/BSD-3-Clause> ;
                                                                                  cco:content_license <https://creativecommons.org/licenses/by/3.0/> ;
-                                                                                 cco:copyright "COPYRIGHT © 2015-2020 CUBRC, Inc."@en ;
                                                                                  rdfs:comment "This ontology is designed to represent sites, spatial regions, and other entities, especially those that are located near the surface of Earth, as well as the relations that hold between them."@en ;
                                                                                  rdfs:label "Geospatial Ontology"@en ;
-                                                                                 owl:versionInfo "Version 1.3"@en .
+                                                                                 owl:versionInfo "A draft version of CCO that illustrates provisional changes necessary to import BFO2020. The Relations Ontology is no longer used."@en .
 
 #################################################################
 #    Object Properties
@@ -80,8 +79,7 @@ cco:has_nontangential_part rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/has_spatial_part
 cco:has_spatial_part rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf obo:BFO_0000051 ,
-                                        cco:connected_with ;
+                     rdfs:subPropertyOf cco:connected_with ;
                      owl:inverseOf cco:spatial_part_of ;
                      rdf:type owl:TransitiveProperty ;
                      rdfs:domain obo:BFO_0000141 ;
@@ -127,8 +125,7 @@ cco:partially_overlaps_with rdf:type owl:ObjectProperty ;
 
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/spatial_part_of
 cco:spatial_part_of rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf obo:BFO_0000050 ,
-                                       cco:connected_with ;
+                    rdfs:subPropertyOf cco:connected_with ;
                     rdf:type owl:TransitiveProperty ;
                     rdfs:domain obo:BFO_0000141 ;
                     rdfs:range obo:BFO_0000141 ;
@@ -220,7 +217,7 @@ cco:AxisOfRotation rdf:type owl:Class ;
 cco:BoundingBoxPoint rdf:type owl:Class ;
                      owl:equivalentClass [ owl:intersectionOf ( cco:GeospatialPosition
                                                                 [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty obo:BFO_0000050 ;
+                                                                  owl:onProperty obo:BFO_0000176 ;
                                                                   owl:someValuesFrom cco:GeospatialRegionBoundingBox
                                                                 ]
                                                               ) ;
@@ -297,7 +294,7 @@ cco:County rdf:type owl:Class ;
 cco:DivisonOfGeopoliticalEntity rdf:type owl:Class ;
                                 rdfs:subClassOf cco:GeospatialRegion ,
                                                 [ rdf:type owl:Restriction ;
-                                                  owl:onProperty obo:BFO_0000050 ;
+                                                  owl:onProperty obo:BFO_0000176 ;
                                                   owl:someValuesFrom cco:GeopoliticalEntity
                                                 ] ;
                                 owl:disjointWith cco:GeopoliticalEntity ;
@@ -320,7 +317,7 @@ cco:EnvironmentalFeature rdf:type owl:Class ;
 cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
                                    rdfs:subClassOf cco:GeopoliticalEntity ,
                                                    [ rdf:type owl:Restriction ;
-                                                     owl:onProperty obo:BFO_0000050 ;
+                                                     owl:onProperty obo:BFO_0000176 ;
                                                      owl:someValuesFrom cco:Country
                                                    ] ;
                                    cco:definition "A Geopolitical Entity that is a primary administrative division of a Country."@en ;
@@ -334,7 +331,7 @@ cco:FirstOrderAdministrativeRegion rdf:type owl:Class ;
 cco:FourthOrderAdministrativeRegion rdf:type owl:Class ;
                                     rdfs:subClassOf cco:GeopoliticalEntity ,
                                                     [ rdf:type owl:Restriction ;
-                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:onProperty obo:BFO_0000176 ;
                                                       owl:someValuesFrom cco:ThirdOrderAdministrativeRegion
                                                     ] ;
                                     cco:definition "A Geopolitical Entity that is a subdivision of a Third-Order Administrative Region."@en ;
@@ -371,7 +368,7 @@ cco:GeopoliticalEntityBorder rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialBoundary
 cco:GeospatialBoundary rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000142 ;
-                       cco:definition "A One-Dimensional Continuant Fiat Boundary that is a boundary of some Geospatial Region."@en ;
+                       cco:definition "A Fiat Line that is a boundary of some Geospatial Region."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Geospatial Boundary"@en .
 
@@ -412,7 +409,7 @@ cco:GeospatialLineString rdf:type owl:Class ;
 cco:GeospatialLocation rdf:type owl:Class ;
                        rdfs:subClassOf cco:GeospatialRegion ,
                                        [ rdf:type owl:Restriction ;
-                                         owl:onProperty obo:RO_0001015 ;
+                                         owl:onProperty obo:BFO_0000124 ;
                                          owl:someValuesFrom obo:BFO_0000001
                                        ] ;
                        cco:definition "A Geospatial Region at which an Entity or Event is located."@en ;
@@ -431,7 +428,7 @@ cco:GeospatialPolygon rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/GeospatialPosition
 cco:GeospatialPosition rdf:type owl:Class ;
                        rdfs:subClassOf obo:BFO_0000147 ;
-                       cco:definition "A zero-dimensional continuant fiat boundary that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en ;
+                       cco:definition "A Fiat Point that is at or near the surface of the Earth and fixed according to some Geospatial Coordinate Reference System."@en ;
                        cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
                        rdfs:label "Geospatial Position"@en .
 
@@ -618,7 +615,7 @@ cco:RollAxis rdf:type owl:Class ;
 ###  http://www.ontologyrepository.com/CommonCoreOntologies/SeaLevel
 cco:SeaLevel rdf:type owl:Class ;
              rdfs:subClassOf obo:BFO_0000146 ;
-             cco:definition "A two-dimensional continuant fiat boundary that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
+             cco:definition "A Fiat Surface that divides the spheroid composed of Earth and its atmosphere at some point that corresponds to the mean level of calm water in the Earth’s oceans."@en ;
              cco:is_curated_in_ontology "http://www.ontologyrepository.com/CommonCoreOntologies/Mid/GeospatialOntology"^^xsd:anyURI ;
              rdfs:label "Sea Level"@en .
 
@@ -627,7 +624,7 @@ cco:SeaLevel rdf:type owl:Class ;
 cco:SecondOrderAdministrativeRegion rdf:type owl:Class ;
                                     rdfs:subClassOf cco:GeopoliticalEntity ,
                                                     [ rdf:type owl:Restriction ;
-                                                      owl:onProperty obo:BFO_0000050 ;
+                                                      owl:onProperty obo:BFO_0000176 ;
                                                       owl:someValuesFrom cco:FirstOrderAdministrativeRegion
                                                     ] ;
                                     cco:definition "A Geopolitical Entity that is a subdivision of a First-Order Administrative Region."@en ;
@@ -675,7 +672,7 @@ cco:Subcontinent rdf:type owl:Class ;
 cco:ThirdOrderAdministrativeRegion rdf:type owl:Class ;
                                    rdfs:subClassOf cco:GeopoliticalEntity ,
                                                    [ rdf:type owl:Restriction ;
-                                                     owl:onProperty obo:BFO_0000050 ;
+                                                     owl:onProperty obo:BFO_0000176 ;
                                                      owl:someValuesFrom cco:SecondOrderAdministrativeRegion
                                                    ] ;
                                    cco:definition "A Geopolitical Entity that is a subdivision of a Second-Order Administrative Region."@en ;
@@ -765,4 +762,4 @@ cco:zAxis rdf:type owl:Class ;
           rdfs:label "z-Axis"@en .
 
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -10,7 +10,7 @@
 @base <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> .
 
 <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/ModalRelationOntology> rdf:type owl:Ontology ;
-                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-10-23/ModalRelationOntology> ;
+                                                                                    owl:versionIRI <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/2020-10-23/BFO2020/ModalRelationOntology> ;
                                                                                     rdfs:comment "The modal counterparts to relations contained in the Common Core Ontologies (CCO) and the Basic Formal Ontology (BFO)."@en ;
                                                                                     rdfs:label "Modal Relation Ontology"@en ;
                                                                                     owl:versionInfo "A draft version of MRO that illustrates provisional changes necessary to import BFO2020. The Relations Ontology is no longer used."@en .

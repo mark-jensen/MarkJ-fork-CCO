@@ -1,55 +1,20 @@
 # Common Core Ontologies
-The Common Core Ontologies (CCO) comprise twelve ontologies that are designed to represent and integrate taxonomies of generic classes and relations across all domains of interest.
+This repository contains the Common Core Ontologies (CCO), which comprise eleven ontologies containing classes and relations that serve as a mid-level reference for integrating data across any domain. CCO extends from the Basic Formal Ontology (BFO), a ISO standard top-level ontology [ISO/IEC 21838‑1](https://www.iso.org/standard/71954.html). BFO is [widely]() used across the U.S. Government, the biomedical domain, an in industry. Both BFO and CCO have been endorsed by Chief Data Officers within the U.S. Department of Defense and Intelligence Community as baseline ontology standards. <<< TODO: add links
 
-CCO is a mid-level extension of Basic Formal Ontology (BFO), an upper-level ontology framework widely used to structure and integrate ontologies in the biomedical domain (Arp, et al., 2015). BFO aims to represent the most generic categories of entity and the most generic types of relations that hold between them, by defining a small number of classes and relations. CCO then extends from BFO in the sense that every class in CCO is asserted to be a subclass of some class in BFO, and that CCO adopts the generic relations defined in BFO (e.g., has_part) (Smith and Grenon, 2004). Accordingly, CCO classes and relations are heavily constrained by the BFO framework, from which it inherits much of its basic semantic relationships.
+The Common Core Governance Board (CCGB) was founded in December of 2023 to ensure that CCO is maintained in perpetuity and independent of any particular individual, organization, or influence. <<< TODO: Link
 
-The CCO provide semantics for concepts and relations that are used in most domains of interest. The utility of the CCO comes from preventing BFO-compliant domain-specific ontologies from needlessly duplicating common concepts or from forcing such ontologies to include concepts outside of their domain (e.g. organization in the Ontology of Biomedical Investigations).
+TODO: List members
 
-This utility has been realized by a number of U.S. Government sponsored projects in which either existing BFO compliant ontologies were aligned to the CCO or domain ontologies were created by using the CCO as a starting point and adding classes and properties as needed.
+TODO: list ontologies or add diagram
 
-The names of a sample of these domain ontologies are provided in the list below.
+CCO is currently being standardized as [IEEE Standards Association](https://standards.ieee.org/develop/) [mid-level ontology](https://standards.ieee.org/ieee/3195/11025/). 
 
-The U.S. Government holds Government Purpose Rights on all of these domain ontologies. To obtain one or more of these domain ontologies for a government purpose it will be necessary for a government representative to contact the government sponsor of the development of the ontology. CUBRC can facilitate these connections so if interested please use the contact link at the bottom of this [page](https://www.cubrc.org/data-science-information-fusion/specialized-data-ontology-development/).
+## Current Release 
 
-# Sample of Common Core Domain Ontology Extensions
-Aircraft Ontology
+* The current release of CCO exists in two formats. One is the 11 ontologies located in src/core. The other is as sinlge merged file located in src/merged.
+* The most current version of these files can always be found at: https://github.com/CommonCoreOntology/CommonCoreOntologies
+* The files in the `master` branch will always be identical to the current release.
 
-Airforce Aircraft Maintenance Ontology
+## Directory Structure
 
-Army Universal Task List Ontology
-
-Atmospheric Feature Ontology
-
-Cyber Ontology
-
-Hydrographic Feature Ontology
-
-Legal and Criminal Act Ontology
-
-Marine Corps Task List Ontology
-
-Military Operations Ontology
-
-Mission Planning Ontology
-
-Occupation Ontology
-
-Outerspace Ontology
-
-Physiographic Feature Ontology
-
-Sensor Ontology
-
-Spacecraft Mission Ontology
-
-Spacecraft Ontology
-
-Space Event Ontology
-
-Space Object Ontology
-
-Transportation Infrastructure Ontology
-
-Undersea Warfare Ontology
-
-Watercraft Ontology
+* 

@@ -1,5 +1,5 @@
 # Common Core Ontologies
-This repository contains the Common Core Ontologies (CCO), which comprise eleven ontologies containing classes and relations that serve as a mid-level reference for integrating data across any domain. CCO extends from the Basic Formal Ontology (BFO), a ISO standard top-level ontology [ISO/IEC 21838‑1](https://www.iso.org/standard/71954.html). BFO is [widely](https://basic-formal-ontology.org/users.html) used across the U.S. Government, the biomedical domain, and in industry. Both BFO and CCO have been endorsed by Chief Data Officers within the U.S. Department of Defense and Intelligence Community as baseline ontology standards.
+This repository contains the Common Core Ontologies (CCO), which comprise eleven interdependent ontologies containing classes and relations that serve as a mid-level reference for integrating data across any domain. CCO extends from the Basic Formal Ontology (BFO), a ISO standard top-level ontology [ISO/IEC 21838‑1](https://www.iso.org/standard/71954.html). BFO is [widely](https://basic-formal-ontology.org/users.html) used across the U.S. Government, the biomedical domain, and in industry. Both BFO and CCO have been endorsed by Chief Data Officers within the U.S. Department of Defense and Intelligence Community as baseline ontology standards.
 
 TODO: add link to memo
 TODO: list ontologies
@@ -14,21 +14,22 @@ CCO is currently being standardized as [IEEE Standards Association](https://stan
 
 ## Current Release 
 
-* The current release of CCO is CommonCoreOntologies.ttl and is located in this root directory. 
+* The current release of CCO is contained in CommonCoreOntologies.ttl and is located in this root directory. 
 * The most current versions of these files that the release is built from can always be found at: https://github.com/CommonCoreOntology/CommonCoreOntologies/src/core.
 * The files in the `master` branch will always be identical to the current release.
+* Current user guides, best practices, and other documentation relevant to the current release can be found in /documentation.
 * More information about CCO's release strategy can found [here](). TODO: add link
 
 ## Directory Structure
 
 * src/
-- core: contains the eleven ontologies plus an import interface AllCoreOntology.ttl
-- import: contains bfo-core.ttl.
-- mro: contains the ModalRelationOntology.ttl.
+  - core: contains the eleven core ontologies plus an import interface AllCoreOntology.ttl.
+  - import: contains bfo-core.ttl.
+  - mro: contains the ModalRelationOntology.ttl.
 
 * documentation/
-- ontology-diff-files: contains any diff files per ontology between the current release and previous release.
-- legacy-documentation: contains previous, potentially outdated, documentation. 
+  - ontology-diff-files: contains any diff files per ontology between the current release and previous release.
+  - legacy-documentation: contains previous, potentially outdated, documentation. 
 
 
 ## CCO Ontologies
@@ -42,4 +43,4 @@ graph TB
 
 
 classDef BFO fill:#F5AD27,color:#060606
-classDef CCO fill:#F5AD27,color:#060606
+classDef CCO fill:#277DF5,color:#060606

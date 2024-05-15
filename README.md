@@ -1,20 +1,45 @@
 # Common Core Ontologies
-This repository contains the Common Core Ontologies (CCO), which comprise eleven ontologies containing classes and relations that serve as a mid-level reference for integrating data across any domain. CCO extends from the Basic Formal Ontology (BFO), a ISO standard top-level ontology [ISO/IEC 21838‑1](https://www.iso.org/standard/71954.html). BFO is [widely]() used across the U.S. Government, the biomedical domain, an in industry. Both BFO and CCO have been endorsed by Chief Data Officers within the U.S. Department of Defense and Intelligence Community as baseline ontology standards. <<< TODO: add links
+This repository contains the Common Core Ontologies (CCO), which comprise eleven ontologies containing classes and relations that serve as a mid-level reference for integrating data across any domain. CCO extends from the Basic Formal Ontology (BFO), a ISO standard top-level ontology [ISO/IEC 21838‑1](https://www.iso.org/standard/71954.html). BFO is [widely](https://basic-formal-ontology.org/users.html) used across the U.S. Government, the biomedical domain, and in industry. Both BFO and CCO have been endorsed by Chief Data Officers within the U.S. Department of Defense and Intelligence Community as baseline ontology standards.
 
-The Common Core Governance Board (CCGB) was founded in December of 2023 to ensure that CCO is maintained in perpetuity and independent of any particular individual, organization, or influence. <<< TODO: Link
+TODO: add link to memo
+TODO: list ontologies
 
-TODO: List members
+CCO was created by [CUBRC Inc](https://www.cubrc.org/) under the direction of Ron Rudnicki around 2010. It was made open source in 2017. The Common Core Governance Board (CCGB) was founded in 2023 to ensure that CCO is maintained in perpetuity and independent of any particular individual, organization, or influence. 
 
-TODO: list ontologies or add diagram
+TODO: Link to CCGB page
+
+Founding members are: Mark Jensen, John Beverley, Alexander Cox, Neil Otte, and Barry Smith.
 
 CCO is currently being standardized as [IEEE Standards Association](https://standards.ieee.org/develop/) [mid-level ontology](https://standards.ieee.org/ieee/3195/11025/). 
 
 ## Current Release 
 
-* The current release of CCO exists in two formats. One is the 11 ontologies located in src/core. The other is as sinlge merged file located in src/merged.
-* The most current version of these files can always be found at: https://github.com/CommonCoreOntology/CommonCoreOntologies
+* The current release of CCO is CommonCoreOntologies.ttl and is located in this root directory. 
+* The most current versions of these files that the release is built from can always be found at: https://github.com/CommonCoreOntology/CommonCoreOntologies/src/core.
 * The files in the `master` branch will always be identical to the current release.
+* More information about CCO's release strategy can found [here](). TODO: add link
 
 ## Directory Structure
 
-* 
+* src/
+- core: contains the eleven ontologies plus an import interface AllCoreOntology.ttl
+- import: contains bfo-core.ttl.
+- mro: contains the ModalRelationOntology.ttl.
+
+* documentation/
+- ontology-diff-files: contains any diff files per ontology between the current release and previous release.
+- legacy-documentation: contains previous, potentially outdated, documentation. 
+
+
+## CCO Ontologies
+```mermaid
+graph TB
+    A(BFO):::BFO --> B(Extended Relation Ontology):::CCO
+    A(BFO) ---> C(Information Entity Ontology):::CCO
+    A(BFO) ---> D(Time Ontology):::CCO
+    A(BFO) ---> E(Geospatial Ontology):::CCO
+    C(Information Entity Ontology) --> F(Artifact Ontology):::CCO
+
+
+classDef BFO fill:#F5AD27,color:#060606
+classDef CCO fill:#F5AD27,color:#060606

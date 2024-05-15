@@ -26,6 +26,7 @@ CCO is currently being standardized as [IEEE Standards Association](https://stan
   - core: contains the eleven core ontologies plus an import interface AllCoreOntology.ttl.
   - import: contains bfo-core.ttl.
   - mro: contains the ModalRelationOntology.ttl.
+  - code: contains queries and scripts used to build CCO.
 
 * documentation/
   - ontology-diff-files: contains any diff files per ontology between the current release and previous release.
@@ -35,10 +36,11 @@ CCO is currently being standardized as [IEEE Standards Association](https://stan
 ## CCO Ontologies
 ```mermaid
 graph TB
-    A(BFO):::BFO --> B(Extended Relation Ontology):::CCO
-    A(BFO) ---> C(Information Entity Ontology):::CCO
-    A(BFO) ---> D(Time Ontology):::CCO
-    A(BFO) ---> E(Geospatial Ontology):::CCO
+    A(BFO):::BFO --> B(Information Content Entity):::CCO
+    A(BFO) ---> C(Material Artifact):::CCO
+    A(BFO) ---> D(Geospatial Region):::CCO
+    A(BFO) ---> E(Organization):::CCO
+    A(BFO) ---> E(Environmental Feature):::CCO
     C(Information Entity Ontology) --> F(Artifact Ontology):::CCO
 
 

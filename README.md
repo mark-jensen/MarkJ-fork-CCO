@@ -14,7 +14,7 @@ CCO is currently being standardized as [IEEE Standards Association](https://stan
 
 ## Current Release 
 
-* The current release of CCO is contained in CommonCoreOntologies.ttl and is located in this root directory. 
+* The current release of CCO is contained in cco.ttl and is located in this root directory. 
 * The most current versions of these files that the release is built from can always be found at: https://github.com/CommonCoreOntology/CommonCoreOntologies/src/core.
 * The files in the `master` branch will always be identical to the current release.
 * Current user guides, best practices, and other documentation relevant to the current release can be found in /documentation.

@@ -30,7 +30,7 @@ CCO is currently being standardized as [IEEE Standards Association](https://stan
 
 * documentation/
   - ontology-diff-files: contains any diff files per ontology between the current release and previous release.
-  - legacy-documentation: contains previous, potentially outdated, documentation. 
+  - archive-documentation: contains previous, potentially outdated, documentation. 
 
 
 ## CCO Ontologies

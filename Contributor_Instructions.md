@@ -15,4 +15,4 @@
 - Double check your work, make sure it loads in Protege, open All Core Ontology and confirm there are no bugs.
 - Perform a PR on `develop`. Optionally, you may assign one or more reviewers, e.g., people that contributed to the issue. 
 
-TODO: IRI schema
+TODO: IRI schema, fork procedure
